@@ -1,0 +1,237 @@
+/* --- RESET CƠ BẢN --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4eee0; /* Nền vàng kem */
+  color: #111;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* Khối Hộp Thô Mộc - Đặc trưng của Neo-Brutalism */
+.brutal-box {
+  background: #ffffff;
+  border: 3px solid #111;
+  box-shadow: 6px 6px 0px #111;
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+/* --- HEADER --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffde59; /* Vàng rực rỡ */
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.header h1 {
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.unit-switch {
+  display: flex;
+  gap: 0;
+}
+
+.unit-switch button {
+  background: #fff;
+  border: 3px solid #111;
+  padding: 8px 20px;
+  font-weight: 900;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.unit-switch button:first-child { border-right: none; }
+.unit-switch button.active {
+  background: #111;
+  color: #fff;
+}
+
+/* --- BỐ CỤC 2 CỘT (YC6) --- */
+.app-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .app-grid { grid-template-columns: 320px 1fr; }
+}
+
+/* --- CỘT TRÁI --- */
+.search-bar {
+  width: 100%;
+  border: 3px solid #111;
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #fff;
+  box-shadow: 4px 4px 0px #111;
+  margin-bottom: 25px;
+  outline: none;
+}
+.search-bar:focus { background: #e0f7fa; }
+
+.city-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.city-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background: #fff;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0px #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.city-item:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #111;
+}
+
+.city-item.active {
+  background: #ff90e8; /* Hồng neon */
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #fff;
+  -webkit-text-stroke: 2px #111; /* Viền đen cho ngôi sao */
+}
+.star-btn.fav {
+  color: #ffde59;
+}
+
+/* --- CỘT PHẢI --- */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-height: 500px;
+}
+
+/* Theme màu nền thời tiết */
+.bg-clear { background-color: #ff9f1c !important; }
+.bg-cloudy { background-color: #a4b0be !important; }
+.bg-rain { background-color: #7bed9f !important; }
+.bg-thunder { background-color: #c56cf0 !important; color: white; }
+
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 4px solid currentColor;
+  padding-bottom: 15px;
+}
+
+.weather-header h2 { font-size: 32px; font-weight: 900; }
+.update-text { font-weight: bold; font-size: 14px; margin-top: 5px; }
+
+.weather-body {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+}
+.temp-huge { font-size: 80px; font-weight: 900; line-height: 1; letter-spacing: -2px; }
+.desc-text { font-size: 24px; font-weight: bold; text-transform: uppercase; }
+
+.weather-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 4px solid currentColor;
+  padding-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Dự báo 7 ngày */
+.forecast-section h3 {
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 5px 15px;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+@media (min-width: 550px) { .forecast-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 900px) { .forecast-grid { grid-template-columns: repeat(7, 1fr); } }
+
+.day-card {
+  background: #fff;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0px #111;
+  padding: 15px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-card .d-name { font-weight: 900; font-size: 16px; border-bottom: 3px solid #111; padding-bottom: 5px; margin-bottom: 10px; width: 100%; }
+.day-card .d-date { font-weight: bold; font-size: 12px; margin-bottom: 10px; }
+.day-card .d-temps { margin-top: 15px; font-size: 16px; font-weight: 900; }
+.day-card .d-temps .t-max { color: #e84118; }
+.day-card .d-temps .t-min { color: #0097e6; margin-left: 8px; }
+
+/* Các trạng thái */
+.status-msg {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 50px 20px;
+}
+
+.btn-retry {
+  background: #e84118;
+  color: #fff;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0px #111;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.btn-retry:active { transform: translate(4px, 4px); box-shadow: none; }
